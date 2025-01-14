@@ -139,7 +139,7 @@ print(x[0].shape)
 print(x[:, 0].shape)
 print(x[:, 0].unsqueeze(dim=1).shape)
 x[0, 0] = 100
-print(x[0, 0] == 100)
+print(x[1, 0] == 100)
 
 # fancy indexing
 x = torch.arange(10)
@@ -162,3 +162,20 @@ print(x.remainder(2) == 0) # x.remainder(2) 是x模2
 print(torch.where(x > 5,x,x*2)) # x > 5 ? x:2*x
 print(torch.tensor([0,0,1,1,2,4]).unique())
 
+# view reshape unsqueeze suqeeze permute 
+x = torch.rand(9)
+print(x)
+y = x.view(3,3) # view()要求内存是连续的否则会报错，可以配合contiguous()使用
+print(y)
+x = torch.rand(3,3)
+
+
+def test(*size):
+    return size
+r = test(1,2)
+print(r)
+print(type(r))
+r2 = test((1,2))
+print(r2)
+print(type(r2))
+# rand函数可以接受一串数字 或一个元组列表 是通过重载实现的
