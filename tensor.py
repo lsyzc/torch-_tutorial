@@ -72,7 +72,7 @@ x1 = torch.rand((2, 5))
 x2 = torch.rand((5, 2))
 print(x1.shape)
 z2 = torch.mm(x1, x2)  # z2 = torch.mul(x1,x2) 注释的是按元素相乘，会广播
-
+torch.rnadn
 z3 = x1.mm(x2)
 print(x1)
 print(x2)
@@ -165,6 +165,7 @@ print(torch.tensor([0,0,1,1,2,4]).unique())
 # view reshape unsqueeze suqeeze permute 
 x = torch.rand(9)
 print(x)
+
 y = x.view(3,3) # view()要求内存是连续的否则会报错，可以配合contiguous()使用
 print(y)
 x = torch.rand(3,3)
